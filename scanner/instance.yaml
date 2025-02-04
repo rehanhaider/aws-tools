@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Sets up a nucleus scanner instance"
+Parameters:
+  AMI:
+    Type: String
+  InstanceType:
+    Type: String
+    Default: "t3.micro"
+  UserData:
+    Type: String
+  KeyName:
+    Type: String
+
+Resources:
+  ScannerInstance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !Ref AMI
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      UserData:
+        Fn::Base64: !Ref UserData
