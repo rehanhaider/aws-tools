@@ -4,7 +4,7 @@ USER_DATA=$(base64 -w 0 scanner/setup-scanner.sh)
 
 # Create the stack
 aws cloudformation create-stack \
---stack-name nucleus-scanner \
+--stack-name entropic-scanner \
 --template-body file://scanner/instance.yaml \
 --parameters ParameterKey=AMI,ParameterValue="ami-04b4f1a9cf54c11d0" \
     ParameterKey=KeyName,ParameterValue="MyKP" \

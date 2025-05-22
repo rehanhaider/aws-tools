@@ -1,0 +1,21 @@
+scanners:
+  vm_scanner:
+    deployment:
+      instance_type: "t2.micro"
+      region: "us-west-2"
+      ami_id: "ami-0abcdef1234567890"
+    scan_options:
+      enable_logging: true
+      log_level: "info"
+      
+  s3_scanner:
+    evaluation:
+      check_public_access: true
+      enforce_encryption: true
+      versioning_required: false
+
+  cis_scanner:
+    benchmarks:
+      cis_level: 1
+      report_format: "pdf"
+      compliance_check_interval: "weekly"
